@@ -1,0 +1,31 @@
+
+
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  engineType    = "binary"
+  binaryTargets = ["darwin", "native", "windows"]
+}
+
+model User {
+  id               String    @id @default(cuid())
+  first_name       String
+  last_name        String
+  auth_provider    String
+  auth_id          String
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Post {
+  id           String    @id @default(cuid())
+  title        String
+  body         String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
