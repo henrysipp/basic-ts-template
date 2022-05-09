@@ -13,7 +13,7 @@ router.get('/', async (_req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const post = await prisma.post.findOne({
+  const post = await prisma.post.findFirst({
     where: { id: req.params.id }
   })
   res.json(post)
