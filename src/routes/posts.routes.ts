@@ -20,7 +20,6 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  
   const { title, body } = req.body 
   const post = await prisma.post.create({
     data: {
